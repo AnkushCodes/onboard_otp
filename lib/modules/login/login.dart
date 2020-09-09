@@ -12,8 +12,18 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      backgroundColor: Colors.green,
-      body: Center(child: Text('data'))
+      body:ListView(
+        children: [
+          Center(child:Text('OTP ENTER') ,),
+          // Expanded(
+          //   flex: 1,
+          //   child:RaisedButton(
+          //     onPressed: ()=>{},
+              
+          //     ),
+        //  )
+        ],
+      )
     );
   }
 }
