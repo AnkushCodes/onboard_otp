@@ -1,13 +1,11 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:login_signup/constant/color_const.dart';
 import 'package:login_signup/utility/preferances_services.dart';
 import 'package:login_signup/utility/screen_util.dart';
 import 'package:login_signup/values/assets.dart';
 import 'package:login_signup/values/routes.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -86,23 +84,26 @@ class _SplashScreenState extends State<SplashScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                    ),
-                    color: Colors.black.withOpacity(0.5),
-                    child: Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-                      child: Text(
-                        'Get Started',
-                        style: GoogleFonts.lora(
-                            fontSize: ViewSize.sWidth / 15,
-                            color: Theme.of(context)
-                                .textTheme
-                                .bodyText1
-                                .copyWith(color: Colors.orangeAccent)
-                                .color),
+                  InkWell(
+                    onTap:() =>Navigator.pushNamed(context, RoutesName.login),
+                                      child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                      ),
+                      color: Colors.black.withOpacity(0.5),
+                      child: Container(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+                        child: Text(
+                          'Get Started',
+                          style: GoogleFonts.lora(
+                              fontSize: ViewSize.sWidth / 15,
+                              color: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1
+                                  .copyWith(color: Colors.orangeAccent)
+                                  .color),
+                        ),
                       ),
                     ),
                   ),

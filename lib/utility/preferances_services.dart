@@ -8,9 +8,17 @@ class PreferServices {
   }
 
   init() async {
-    if (_sharedPreferences != null) {
-    } else {
+    if (!(_sharedPreferences != null)) {
       _sharedPreferences = await SharedPreferences.getInstance();
+    }
+  }
+
+  getSharePrefernace() async {
+    if (!(_sharedPreferences != null)) {
+      _sharedPreferences = await SharedPreferences.getInstance();
+      return _sharedPreferences;
+    } else {
+      return _sharedPreferences;
     }
   }
 
@@ -19,6 +27,7 @@ class PreferServices {
   }
 
   getUser() async {
+    await init();
     String value = _sharedPreferences.getString(_usersConst).toString();
     return value;
   }
@@ -28,7 +37,7 @@ class PreferServices {
   }
 
   bool isUserLoggedIn() {
-    if (_sharedPreferences.getBool(_usersConst) != null) {
+    if (_sharedPreferences.getString(_usersConst) != null) {
       return true;
     } else {
       return false;
